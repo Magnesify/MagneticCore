@@ -1,0 +1,9 @@
+name: MagneticCore
+version: '${project.version}'
+main: com.magnesify.magneticcore.MagneticCore
+api-version: '1.18'
+prefix: MagneticCore
+depend: [Vault]
+authors: [hacimertgokhan]
+description: MagneticCore, Core skyblock plugin.
+website: plugins.magnesify.com
