@@ -1,0 +1,178 @@
+magnetic-core:
+  ayarlar:
+    ada-fly: true # bitti
+    ada-reklam: true # bitti
+    ada-kit: true # bitti
+    komut-kisaltma: true
+    event: true # 4
+    oyuncu-sohbeti: true # bitti
+    coin: true # 6
+    zamanlama: true # 5
+    yaz-kazan: true # 7
+    oylama: true # 2
+    duyuru: true # 1
+    sans-bloklari: true # 3
+  degerler:
+    de-aktif: kapalı
+    aktif: açık
+  zamanlama:
+    test2:
+      tekrarlama-suresi: 30 # saniye
+      yapilacak-islemin-komudu:
+        - "say Merhaba"
+    test1:
+      tekrarlama-suresi: 60 # saniye
+      yapilacak-islemin-komudu:
+        - "mgc event start test1"
+  komut-kisaltma:
+    test1:
+      hedef-komut: is
+      donustur: ada
+    test2:
+      hedef-komut: shops
+      donustur: market
+  duyuru:
+    title:
+      aktif: true
+      tekrarlanma-suresi: 60
+      mesajlar:
+        mesaj1:
+          baslik: "&b&lMagnetic Core"
+          alt-baslik: "&7Adakitini almayı unutma."
+    chat:
+      aktif: true
+      tekrarlanma-suresi: 60
+      mesajlar:
+        mesaj2:
+          - ""
+          - "&aAdakitini almayı unutma."
+          - ""
+        mesaj1:
+          - ""
+          - "&aAdakitini almayı unutma."
+          - ""
+    actionbar:
+      aktif: true
+      tekrarlanma-suresi: 60
+      mesajlar:
+        - "&a/Adakit ile adakitini almayı unutma !"
+        - "&c/Adakit ile adakitini almayı unutma !"
+        - "&d/Adakit ile adakitini almayı unutma !"
+  event:
+    menu-basligi: "&3Magnetic Core &8: Başlatılacak Etkinliği Seç"
+    test1:
+      event-adi: "&aTest 1"
+      geri-sayim: 10
+      mesajin-gonderilecegi-yer: actionbar # title, chat
+      icerik:
+        - "(command:player)=> say <player>"
+        - "(command:console)=> say We Love Magnesify !"
+        - "(chat)=> &6&lWe Love Magnesify !"
+        - "(broadcast:chat)=> &6&lWe Love Magnesify !"
+        - "(actionbar)=> &6&lWe Love Magnesify !"
+        - "(sound)=> ENTITY_PLAYER_LEVELUP"
+        - "(give)=> APPLE 4"
+        - "(give:named)=> APPLE 4 AD:&a&lTest ACIKLAMA:&7Test"
+        - "(broadcast:actionbar)=> &6&lWe Love Magnesify !"
+      mesaj:
+        0: "&a<sure> &7saniye kaldı !" # Bu mesaj genel geri sayımda kullanılan mesajdır, kaldırmayın ! HATAYA NEDEN OLUR.
+        1: "&a1 Saniye kaldı"
+        2: "&a2 Saniye kaldı"
+        3: "&a3 Saniye kaldı"
+  ada-kit:
+    oyuncu-adakiti: oyuncu
+    kitler:
+      vip:
+        yetki: mgc.kits.vip
+        icerik:
+          - "(command:player)=> say <player>"
+          - "(command:console)=> say We Love Magnesify !"
+          - "(chat)=> &6&lWe Love Magnesify !"
+          - "(broadcast:chat)=> &6&lWe Love Magnesify !"
+          - "(actionbar)=> &6&lWe Love Magnesify !"
+          - "(sound)=> ENTITY_PLAYER_LEVELUP"
+          - "(give)=> APPLE 32"
+          - "(broadcast:actionbar)=> &6&lWe Love Magnesify !"
+      oyuncu:
+        icerik:
+          - "(command:player)=> say <oyuncu>"
+          - "(command:console)=> say We Love Magnesify !"
+          - "(chat)=> &6&lWe Love Magnesify !"
+          - "(broadcast:chat)=> &6&lWe Love Magnesify !"
+          - "(actionbar)=> &6&lWe Love Magnesify !"
+          - "(sound)=> ENTITY_PLAYER_LEVELUP"
+          - "(give)=> STONE 32"
+          - "(broadcast:actionbar)=> &6&lWe Love Magnesify !"
+  oylama:
+    actionbar: "&a<evet> &fkişi evet, &c<hayir> &fkişi hayır oyunu kullandı."
+    karar-mesajlari:
+      evet: "evet"
+      hayir: "hayır"
+    mesaj:
+      - ""
+      - "&a&lYetkililer Yeni Bir Oylama Sundu"
+      - "&f<mesaj>"
+      - ""
+  yaz-kazan:
+    test1:
+      soru: "Minecraftdaki en önemli eşya taştır ?"
+      oduller:
+        - "(command:player)=> say <player>"
+        - "(command:console)=> say We Love Magnesify !"
+        - "(chat)=> &6&lWe Love Magnesify !"
+        - "(broadcast:chat)=> &6&lWe Love Magnesify !"
+        - "(actionbar)=> &6&lWe Love Magnesify !"
+        - "(sound)=> ENTITY_PLAYER_LEVELUP"
+        - "(give)=> APPLE 4"
+        - "(give:named)=> APPLE 4 AD:&a&lTest ACIKLAMA:&7Test"
+        - "(broadcast:actionbar)=> &6&lWe Love Magnesify !"
+      taraflar: # 2`den fazla taraf olamaz. Lütfen 3,4,5 gibi daha fazla taraf seçeneği eklemeyiniz.
+        2:
+          taraf-adi: "Hayır"
+          karar-mesaji: "Hayır"
+        1:
+          taraf-adi: "Evet"
+          karar-mesaji: "Evet"
+  oyuncu-sohbeti:
+    oyuncu-sohbeti-kapatabilir: false
+    oyuncu-kendi-sohbetini-temizleyebilir: false
+  ada-reklam:
+    reklam-ucreti: 1000
+    mesaj:
+      - ""
+      - "&a&l<oyuncu> &fadlı oyuncu adasını tanıtıyor !"
+      - " &8&l- &f<mesaj>"
+      - ""
+    discord:
+      reklam-mesaji-discorda-gonderilsin: true
+      webhook: "https://discord.com/api/webhooks/1257853562164084826/HZg55BOn3LDwCjs0RSCG8I7ZN-oNemc5Bg6w7GGZbgjC4n2rrlgr0zEXuMqUd-FXFPbH"
+      mesaj:
+        - ""
+        - "&a&l<oyuncu> &fadlı oyuncu adasını tanıtıyor !"
+        - " &8&l- &f<mesaj>"
+        - ""
+  ada-fly:
+    engeli-bypass-edecek-yetki: magneticcore.bypass # Vip oyuncuların adafly
+    cik-girde-ucusu-kapat: true
+    ucusun-izin-verildigi-dunyalar:
+      - world
+  coin:
+    baslangic-miktari: 10
+    oyuncular-birbirine-coin-gonderebilir: false
+    coin-esyasi:
+      durumu: false # false:kapalı, true:açık
+      esya: PAPER
+      esya-ismi: '&c&lCoin'
+      sag-tiklandiginda-verilecek-coin-miktari: 1
+  sans-bloklari:
+    test1:
+      kirilacak-blok: COBBLESTONE
+      sansa-bagli-tetiklenecek-fonksiyonlar:
+        sans2:
+          sans: 10
+          oduller:
+            - "(chat)=> &6&l%10"
+        sans1:
+          sans: 5
+          oduller:
+            - "(chat)=> &6&l%5"

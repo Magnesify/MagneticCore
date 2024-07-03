@@ -7,17 +7,17 @@ import org.bukkit.configuration.file.YamlConfiguration;
 import java.io.File;
 import java.io.IOException;
 
-public class Storage {
+public class Words {
     private FileConfiguration localeConfig;
     private File localeFile;
 
     public void reload() {
         if (localeFile == null) {
-            localeFile = new File(MagneticCore.get().getDataFolder(), "veri/oyuncular.yml");
+            localeFile = new File(MagneticCore.get().getDataFolder(), "veri/kelimeler.yml");
         }
 
         if (!localeFile.exists()) {
-            MagneticCore.get().saveResource("veri/oyuncular.yml", false);
+            MagneticCore.get().saveResource("veri/kelimeler.yml", false);
         }
 
         localeConfig = YamlConfiguration.loadConfiguration(localeFile);
@@ -27,7 +27,7 @@ public class Storage {
         try {
             localeConfig.save(localeFile);
         } catch (IOException e) {
-            MagneticCore.get().getLogger().warning("Could not save veri/oyuncular.yml!");
+            MagneticCore.get().getLogger().warning("Could not save veri/kelimeler.yml!");
         }
     }
 

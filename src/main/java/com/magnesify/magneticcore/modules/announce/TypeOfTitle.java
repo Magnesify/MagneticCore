@@ -1,2 +1,4 @@
-package com.magnesify.magneticcore.modules.announce;public class TypeOfTitle {
+package com.magnesify.magneticcore.modules.announce;
+
+public class TypeOfTitle {
 }

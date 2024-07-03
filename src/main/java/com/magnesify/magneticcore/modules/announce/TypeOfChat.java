@@ -1,2 +1,4 @@
-package com.magnesify.magneticcore.modules.announce;public class TypeOfChat {
+package com.magnesify.magneticcore.modules.announce;
+
+public class TypeOfChat {
 }

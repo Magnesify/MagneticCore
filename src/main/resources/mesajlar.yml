@@ -1,0 +1,34 @@
+magnetic-core:
+  yetkin-yok: '&b&lMagnetic Core &8⋆ &7Bu işlem için yetkin yok !'
+  oyun-komutu: '&b&lMagnetic Core &8⋆ &7Bu komut yanlızca oyundan kullanılabilir.'
+  hata:
+    mgc0: '&c&lMagnetic Core &8⋆ &7Oyuncu adakiti belirlenmemiş, lütfen &c`magnetic-core.ada-kit.oyuncu-adakiti` &7parametresini kontrol edin.'
+  ada-reklam:
+    yasakli-kelime: '&b&lMagnetic Core &8⋆ &7Yasaklı bir kelime kullandın.'
+    yetersiz-bakiye: '&b&lMagnetic Core &8⋆ &7Yetersiz bakiye, Bu işlem için &a<ihtiyaci_olan_miktar> TL &7daha gerek.'
+  ada-kit:
+    zaten-alinmis: '&b&lMagnetic Core &8⋆ &7Adakitini zaten almışsın !'
+  ada-fly:
+    yasakli-dunya: '&b&lMagnetic Core &8⋆ &7Bu dünyada uçamazsın !'
+    bildirim: '&b&lMagnetic Core &8⋆ &7Adafly &f<durum>'
+  mesajlar:
+    sohbet-acildi: '&b&lMagnetic Core &8⋆ &7Artık mesajları göreceksin.'
+    sohbet-kapandi: '&b&lMagnetic Core &8⋆ &7Artık gelen mesajları göremeyeceksin.'
+    sohbetin-kapali-iken-mesaj-gonderemezsin: '&b&lMagnetic Core &8⋆ &7Sohbetin kapalı iken mesaj gönderemezsin !'
+  sohbetin-temizlendi:
+    - ""
+    - "&aSohbetin başarıyla temizlendi !"
+  yardim:
+    ada-fly:
+      - ""
+      - "&f/Adafly &7: Uçmak için yaz !"
+      - ""
+    ada-kit:
+      - ""
+      - "&f/Adakit &7: Adakitini almak için kullan !"
+      - ""
+    oyuncu-sohbeti:
+      - ""
+      - "&f/Sohbetim mesajlar &7: Sohbetinize gelen mesajları açarsınız/kapatırsınız."
+      - "&f/Sohbetim temizle &7: Kendi sohbetinizi temizlersiniz."
+      - ""
