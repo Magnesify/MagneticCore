@@ -1,9 +1,22 @@
 name: MagneticCore
 version: '${project.version}'
 main: com.magnesify.magneticcore.MagneticCore
-api-version: '1.18'
 prefix: MagneticCore
 depend: [Vault]
 authors: [hacimertgokhan]
 description: MagneticCore, Core skyblock plugin.
 website: plugins.magnesify.com
+commands:
+  Mgc:
+    permission: magneticcore.admin
+    description: Magnetic Core, Yonetim.
+  Adareklam:
+    description: Magnetic Core, Ada reklam
+  Adakit:
+    description: Magnetic Core, Ada kit
+  Adafly:
+    description: Magnetic Core, Ada fly
+  Sohbetim:
+    description: Magnetic Core, Oyuncu sohbeti
+  Bahsetme:
+    description: Magnetic Core, Bahsetme

@@ -30,11 +30,26 @@ public class Fly implements CommandExecutor {
                 for(String worlds : settings.get().getStringList("magnetic-core.ada-fly.ucusun-izin-verildigi-dunyalar")) {
                     if(!player.hasPermission(settings.get().getString("magnetic-core.ada-fly.engeli-bypass-edecek-yetki"))) {
                         if(player.getWorld().getName().equalsIgnoreCase(worlds)) {
-                            player.setFlying(!player.isFlying());
+                            if(player.getAllowFlight()) {
+                                player.setAllowFlight(false);
+                                player.setFlying(false);
+                            } else {
+                                player.setAllowFlight(true);
+                                player.setFlying(true);
+                            }
                             commandSender.sendMessage(ChatColor.translateAlternateColorCodes('&', locale.get().getString("magnetic-core.ada-fly.bildirim").replace("<durum>", player.isFlying() ? settings.get().getString("magnetic-core.degerler.aktif") : settings.get().getString("magnetic-core.degerler.de-aktif") )));
                         } else {
                             commandSender.sendMessage(ChatColor.translateAlternateColorCodes('&', locale.get().getString("magnetic-core.ada-fly.yasakli-dunya")));
                         }
+                    } else {
+                        if(player.getAllowFlight()) {
+                            player.setAllowFlight(false);
+                            player.setFlying(false);
+                        } else {
+                            player.setAllowFlight(true);
+                            player.setFlying(true);
+                        }
+                        commandSender.sendMessage(ChatColor.translateAlternateColorCodes('&', locale.get().getString("magnetic-core.ada-fly.bildirim").replace("<durum>", player.isFlying() ? settings.get().getString("magnetic-core.degerler.aktif") : settings.get().getString("magnetic-core.degerler.de-aktif") )));
                     }
                 }
             } else {

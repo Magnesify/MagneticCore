@@ -11,6 +11,22 @@ import org.bukkit.inventory.ItemStack;
 
 public class StringFunctionReader {
 
+    public static void RunFunctionFromConsole(String ft) {
+        if (ft.startsWith("(command:console)=> ")) {
+            String function = ft.substring(20).trim();
+            Bukkit.dispatchCommand(Bukkit.getConsoleSender(), function);
+        } else if (ft.startsWith("(broadcast:chat)=> ")) {
+            String function = ft.substring(19).trim();
+            for(Player player : Bukkit.getOnlinePlayers()){
+                player.sendMessage(ChatColor.translateAlternateColorCodes('&', function));
+            }
+        } else if (ft.startsWith("(broadcast:actionbar)=> ")) {
+            String function = ft.substring(24).trim();
+            for (Player player : Bukkit.getOnlinePlayers()) {
+                player.spigot().sendMessage(ChatMessageType.ACTION_BAR, TextComponent.fromLegacyText(ChatColor.translateAlternateColorCodes('&', function)));
+            }
+        }
+    }
 
     public static void RunFunction(Player forPlayer, String ft) {
         if (ft.startsWith("(command:console)=> ")) {

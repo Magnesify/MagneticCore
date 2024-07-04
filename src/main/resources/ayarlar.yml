@@ -3,45 +3,74 @@ magnetic-core:
     ada-fly: true # bitti
     ada-reklam: true # bitti
     ada-kit: true # bitti
-    komut-kisaltma: true
     event: true # 4
     oyuncu-sohbeti: true # bitti
+    otomatik-sohbet-silme: true # bitti
+    bahsetme: true # bitti
+    otomatik-satis: true
     coin: true # 6
-    zamanlama: true # 5
+    zamanlayici: true # bitti
     yaz-kazan: true # 7
     oylama: true # 2
-    duyuru: true # 1
-    sans-bloklari: true # 3
+    duyuru: true # bitti
+    sans-bloklari: true # bitti
   degerler:
     de-aktif: kapalı
     aktif: açık
-  zamanlama:
+  bahsetme:
+    etiket: "#"
+    baslik: "&a<bahseden>"
+    alt-baslik: "&fSenden bahsetti !"
+  otomatik-satis:
     test2:
-      tekrarlama-suresi: 30 # saniye
+      esya: GRASS
+      tetiklen: 10
+      modul: fonksiyon
+      fonksiyonlar:
+        - "(command:player)=> say <player>"
+        - "(command:console)=> say We Love Magnesify !"
+        - "(chat)=> &6&lWe Love Magnesify !"
+        - "(broadcast:chat)=> &6&lWe Love Magnesify !"
+        - "(actionbar)=> &6&lWe Love Magnesify !"
+        - "(sound)=> ENTITY_PLAYER_LEVELUP"
+        - "(give)=> APPLE 4"
+        - "(broadcast:actionbar)=> &6&lWe Love Magnesify !"
+    test1:
+      esya: COBBLESTONE
+      tetiklen: 10
+      modul: para # komut
+      fiyatlandirma:
+        tipi: adet_basina # toplam_ucret
+        verilecek-ucret: 10 #
+  otomatik-sohbet-silme:
+    tekrarlanma-suresi: 120 # saniye
+    mesaj:
+      - ""
+      - ""
+      - "&aSohbet otomatik olarak temizlendi !"
+  zamanlayici:
+    test2:
+      tekrarlama-suresi: 5 # saniye
       yapilacak-islemin-komudu:
         - "say Merhaba"
     test1:
       tekrarlama-suresi: 60 # saniye
       yapilacak-islemin-komudu:
         - "mgc event start test1"
-  komut-kisaltma:
-    test1:
-      hedef-komut: is
-      donustur: ada
-    test2:
-      hedef-komut: shops
-      donustur: market
   duyuru:
     title:
       aktif: true
-      tekrarlanma-suresi: 60
+      tekrarlanma-suresi: 20
       mesajlar:
         mesaj1:
           baslik: "&b&lMagnetic Core"
           alt-baslik: "&7Adakitini almayı unutma."
+        mesaj2:
+          baslik: "&c&lMagnetic Core"
+          alt-baslik: "&cAdakitini almayı unutma."
     chat:
       aktif: true
-      tekrarlanma-suresi: 60
+      tekrarlanma-suresi: 30
       mesajlar:
         mesaj2:
           - ""
@@ -53,7 +82,7 @@ magnetic-core:
           - ""
     actionbar:
       aktif: true
-      tekrarlanma-suresi: 60
+      tekrarlanma-suresi: 10
       mesajlar:
         - "&a/Adakit ile adakitini almayı unutma !"
         - "&c/Adakit ile adakitini almayı unutma !"
@@ -83,6 +112,7 @@ magnetic-core:
     oyuncu-adakiti: oyuncu
     kitler:
       vip:
+        isim: vip
         yetki: mgc.kits.vip
         icerik:
           - "(command:player)=> say <player>"
@@ -94,6 +124,7 @@ magnetic-core:
           - "(give)=> APPLE 32"
           - "(broadcast:actionbar)=> &6&lWe Love Magnesify !"
       oyuncu:
+        isim: oyuncu
         icerik:
           - "(command:player)=> say <oyuncu>"
           - "(command:console)=> say We Love Magnesify !"
@@ -110,12 +141,16 @@ magnetic-core:
       hayir: "hayır"
     mesaj:
       - ""
-      - "&a&lYetkililer Yeni Bir Oylama Sundu"
+      - "&b&lMagnetic Core &8⋆"
+      - " &b&l: &7Yetkililer Yeni Bir Oylama Sundu"
+      - ""
       - "&f<mesaj>"
+      - ""
+      - "&7Katılıyorsanız &aEvet, &7Katılmıyorsanız &cHayır &7yazınız"
       - ""
   yaz-kazan:
     test1:
-      soru: "Minecraftdaki en önemli eşya taştır ?"
+      soru: "Minecraftdaki en önemli eşya taştır."
       oduller:
         - "(command:player)=> say <player>"
         - "(command:console)=> say We Love Magnesify !"
@@ -124,13 +159,13 @@ magnetic-core:
         - "(actionbar)=> &6&lWe Love Magnesify !"
         - "(sound)=> ENTITY_PLAYER_LEVELUP"
         - "(give)=> APPLE 4"
-        - "(give:named)=> APPLE 4 AD:&a&lTest ACIKLAMA:&7Test"
+        #- "(give:named)=> APPLE 4 AD:&a&lTest ACIKLAMA:&7Test"
         - "(broadcast:actionbar)=> &6&lWe Love Magnesify !"
       taraflar: # 2`den fazla taraf olamaz. Lütfen 3,4,5 gibi daha fazla taraf seçeneği eklemeyiniz.
-        2:
+        taraf-2:
           taraf-adi: "Hayır"
           karar-mesaji: "Hayır"
-        1:
+        taraf-1:
           taraf-adi: "Evet"
           karar-mesaji: "Evet"
   oyuncu-sohbeti:
@@ -167,7 +202,18 @@ magnetic-core:
   sans-bloklari:
     test1:
       kirilacak-blok: COBBLESTONE
+      yetki: # yapılmadı
+        aktif: false
+        izin: mgc.lb.default
       sansa-bagli-tetiklenecek-fonksiyonlar:
+        sans4:
+          sans: 60
+          oduller:
+            - "(chat)=> &6&l%60"
+        sans3:
+          sans: 50
+          oduller:
+            - "(chat)=> &6&l%50"
         sans2:
           sans: 10
           oduller:

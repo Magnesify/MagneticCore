@@ -16,14 +16,12 @@ public class ChatMessageFilter implements Listener {
     @EventHandler
     public void onPlayerChat(AsyncPlayerChatEvent event) {
         Player sender = event.getPlayer();
-        event.getRecipients().removeIf(player -> optional_player_chat_view.contains(player.getUniqueId().toString()));
         if(optional_player_chat_view.contains(sender.getUniqueId().toString())) {
-            if(!sender.hasPermission("magneticcore.chat.bypass")) {
-                event.setCancelled(true);
-                Locale locale = new Locale();
-                sender.sendMessage(ChatColor.translateAlternateColorCodes('&', locale.get().getString("magnetic-core.mesajlar.sohbetin-kapali-iken-mesaj-gonderemezsin")));
-            }
+            event.setCancelled(true);
+            Locale locale = new Locale();
+            sender.sendMessage(ChatColor.translateAlternateColorCodes('&', locale.get().getString("magnetic-core.mesajlar.sohbetin-kapali-iken-mesaj-gonderemezsin")));
         }
+        event.getRecipients().removeIf(player -> optional_player_chat_view.contains(player.getUniqueId().toString()));
     }
 
 }

@@ -2,6 +2,7 @@ package com.magnesify.magneticcore.commands;
 
 import com.magnesify.magneticcore.MagneticCore;
 import com.magnesify.magneticcore.files.Locale;
+import com.magnesify.magneticcore.files.Settings;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -29,21 +30,31 @@ public class PlayerChat implements CommandExecutor {
                 help(commandSender);
             } else if (strings.length == 1) {
                 Locale locale = new Locale();
+                Settings settings = new Settings();
                 if(strings[0].equalsIgnoreCase("temizle")) {
-
-                    for(int i = 0; i<100; i++) {
-                        commandSender.sendMessage(" ");
-                    }
-                    for(String a : locale.get().getStringList("magnetic-core.sohbetin-temizlendi")) {
-                        commandSender.sendMessage(ChatColor.translateAlternateColorCodes('&', a));
+                    if(settings.get().getBoolean("magnetic-core.oyuncu-sohbeti.oyuncu-kendi-sohbetini-temizleyebilir")) {
+                        for(int i = 0; i<100; i++) {
+                            commandSender.sendMessage(" ");
+                        }
+                        for(String a : locale.get().getStringList("magnetic-core.sohbetin-temizlendi")) {
+                            commandSender.sendMessage(ChatColor.translateAlternateColorCodes('&', a));
+                        }
+                    } else {
+                        commandSender.sendMessage(ChatColor.translateAlternateColorCodes('&', locale.get().getString("magnetic-core.hata.modul-kapali")));
                     }
                 } else if (strings[0].equalsIgnoreCase("mesajlar")) {
-                    if(optional_player_chat_view.contains(player.getUniqueId().toString())) {
-                        optional_player_chat_view.remove(player.getUniqueId().toString());
-                        commandSender.sendMessage(ChatColor.translateAlternateColorCodes('&', locale.get().getString("magnetic-core.mesajlar.sohbet-acildi")));
+                    if(settings.get().getBoolean("magnetic-core.oyuncu-sohbeti.oyuncu-sohbeti-kapatabilir")) {
+
+                        if (optional_player_chat_view.contains(player.getUniqueId().toString())) {
+                            optional_player_chat_view.remove(player.getUniqueId().toString());
+                            commandSender.sendMessage(ChatColor.translateAlternateColorCodes('&', locale.get().getString("magnetic-core.mesajlar.sohbet-acildi")));
+                        } else {
+                            optional_player_chat_view.add(player.getUniqueId().toString());
+                            commandSender.sendMessage(ChatColor.translateAlternateColorCodes('&', locale.get().getString("magnetic-core.mesajlar.sohbet-kapandi")));
+                        }
                     } else {
-                        optional_player_chat_view.add(player.getUniqueId().toString());
-                        commandSender.sendMessage(ChatColor.translateAlternateColorCodes('&', locale.get().getString("magnetic-core.mesajlar.sohbet-kapandi")));
+                        commandSender.sendMessage(ChatColor.translateAlternateColorCodes('&', locale.get().getString("magnetic-core.hata.modul-kapali")));
+
                     }
                 } else {
                     help(commandSender);

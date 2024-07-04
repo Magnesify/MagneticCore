@@ -1,7 +1,6 @@
 package com.magnesify.magneticcore.commands.island;
 
 import com.magnesify.magneticcore.MagneticCore;
-import com.magnesify.magneticcore.core.SettingHandler;
 import com.magnesify.magneticcore.files.Locale;
 import com.magnesify.magneticcore.files.Settings;
 import com.magnesify.magneticcore.files.Words;
@@ -71,27 +70,35 @@ public class Ads implements CommandExecutor {
                 Player player = (Player) commandSender;
                 Settings settings = new Settings();
                 Words words = new Words();
-                SettingHandler settingHandler = new SettingHandler(settings);
                 MagnesifyPlayer magnesifyPlayer = new MagnesifyPlayer(player);
-                if(getEconomy().getBalance(player) >= settingHandler.ADS_PRICE) {
-                    String message = String.join(" ", s);
-                    for(String w : words.get().getStringList("yasakli-kelimeler.ada-reklam")) {
-                        if(message.contains(w)) {
+                if (getEconomy().getBalance(player) >= settings.get().getInt("magnetic-core.ada-reklam.reklam-ucreti")) {
+                    String message = "";
+                    for (String part : strings) {
+                        if (message != "") message += " ";
+                        message += part;
+                    }
+                    for (String w : words.get().getStringList("yasakli-kelimeler.ada-reklam")) {
+                        if (message.contains(w)) {
                             commandSender.sendMessage(ChatColor.translateAlternateColorCodes('&', locale.get().getString("magnetic-core.ada-reklam.yasakli-kelime")));
-                        } else {
-                            getEconomy().withdrawPlayer(player, settingHandler.ADS_PRICE);
-                            for(String m : settings.get().getStringList("magnetic-core.ada-reklam.mesaj")) {
-                                player.sendMessage(ChatColor.translateAlternateColorCodes('&', m.replace("<oyuncu>",player.getName()).replace("<mesaj>", message)));
-                            }
-                            if(settingHandler.ADA_REKLAM_DISCORD) {
-
-                            }
-                            sendToDiscord(settings.get().getStringList("magnetic-core.ada-reklam.discord.mesaj"), settings.get().getString("magnetic-core.ada-reklam.discord.webhook"));
+                            return false;
                         }
                     }
+
+                    getEconomy().withdrawPlayer(player, settings.get().getInt("magnetic-core.ada-reklam.reklam-ucreti"));
+                    player.sendMessage(ChatColor.translateAlternateColorCodes('&', locale.get().getString("magnetic-core.ada-reklam.reklam-gerceklesti").replace("<ucret>", String.valueOf((int) (settings.get().getInt("magnetic-core.ada-reklam.reklam-ucreti"))))));
+                    for (String m : settings.get().getStringList("magnetic-core.ada-reklam.mesaj")) {
+                        player.sendMessage(ChatColor.translateAlternateColorCodes('&', m.replace("<oyuncu>", player.getName()).replace("<mesaj>", message)));
+                    }
+                    if (settings.get().getBoolean("magnetic-core.ayarlar.ada-reklam.discord.reklam-mesaji-discorda-gonderilsin")) {
+                        sendToDiscord(settings.get().getStringList("magnetic-core.ada-reklam.discord.mesaj"), settings.get().getString("magnetic-core.ada-reklam.discord.webhook"));
+
+                    }
+
                 } else {
-                    commandSender.sendMessage(ChatColor.translateAlternateColorCodes('&', locale.get().getString("magnetic-core.ada-reklam.yetersiz-bakiye").replace("<ihtiyaci_olan_miktar>", String.valueOf((int)(settingHandler.ADS_PRICE - getEconomy().getBalance(player))))));
+                    commandSender.sendMessage(ChatColor.translateAlternateColorCodes('&', locale.get().getString("magnetic-core.ada-reklam.yetersiz-bakiye").replace("<ihtiyaci_olan_miktar>", String.valueOf((int) (settings.get().getInt("magnetic-core.ada-reklam.reklam-ucreti") - getEconomy().getBalance(player))))));
                 }
+            } else if (strings.length == 0) {
+                help(commandSender);
             } else {
                 help(commandSender);
             }

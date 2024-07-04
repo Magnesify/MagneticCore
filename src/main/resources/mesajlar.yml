@@ -1,13 +1,21 @@
 magnetic-core:
   yetkin-yok: '&b&lMagnetic Core &8⋆ &7Bu işlem için yetkin yok !'
   oyun-komutu: '&b&lMagnetic Core &8⋆ &7Bu komut yanlızca oyundan kullanılabilir.'
+  bahsetme-degistirildi: '&b&lMagnetic Core &8⋆ &7Bahsetme &f<durum>.'
+  admin:
+    boyle-bir-sayfa-yok: '&b&lMagnetic Core &8⋆ &7Böyle bir sayfa yok.'
+    eklenti-yenilendi: '&b&lMagnetic Core &8⋆ &7Eklenti dosyaları başarıyla yenilendi.'
   hata:
-    mgc0: '&c&lMagnetic Core &8⋆ &7Oyuncu adakiti belirlenmemiş, lütfen &c`magnetic-core.ada-kit.oyuncu-adakiti` &7parametresini kontrol edin.'
+    modul-kapali: '&b&lMagnetic Core &8⋆ &7Modül yetkililer tarafından kapatılmış.'
+    adakit-bulunamadi: '&c&lMagnetic Core &8⋆ &7Başlangıç adakiti belirlenmemiş, lütfen &c`magnetic-core.ada-kit.oyuncu-adakiti` &7parametresini kontrol edin.'
   ada-reklam:
     yasakli-kelime: '&b&lMagnetic Core &8⋆ &7Yasaklı bir kelime kullandın.'
     yetersiz-bakiye: '&b&lMagnetic Core &8⋆ &7Yetersiz bakiye, Bu işlem için &a<ihtiyaci_olan_miktar> TL &7daha gerek.'
+    reklam-gerceklesti: '&b&lMagnetic Core &8⋆ &7Reklam gerçekleşti, hesabından &a<ucret> TL &7çekildi.'
   ada-kit:
     zaten-alinmis: '&b&lMagnetic Core &8⋆ &7Adakitini zaten almışsın !'
+    bu-kiti-alamazsin: '&b&lMagnetic Core &8⋆ &7Bu kiti alamazsın !'
+    boyle-bir-kit-yok: '&b&lMagnetic Core &8⋆ &7Böyle bir kit yok ! Kitler: oyuncu, vip'
   ada-fly:
     yasakli-dunya: '&b&lMagnetic Core &8⋆ &7Bu dünyada uçamazsın !'
     bildirim: '&b&lMagnetic Core &8⋆ &7Adafly &f<durum>'
@@ -17,8 +25,50 @@ magnetic-core:
     sohbetin-kapali-iken-mesaj-gonderemezsin: '&b&lMagnetic Core &8⋆ &7Sohbetin kapalı iken mesaj gönderemezsin !'
   sohbetin-temizlendi:
     - ""
-    - "&aSohbetin başarıyla temizlendi !"
+    - "&b&lMagnetic Core &8⋆ &7Sohbetin başarıyla temizlendi !"
   yardim:
+    admin:
+      sayfa-1:
+        - ""
+        - "&b&lMagnetic Core &8⋆ &f1. Sayfa"
+        - " &f/Mgc yenile"
+        - "   &7: Eklenti dosyalarını yeniler."
+        - " &f/Mgc event başlat <Event Adı>"
+        - "   &7: Seçilen etkinliği başlatır."
+        - " &f/Mgc event durdur"
+        - "   &7: Bütün etkinlikleri durdurur."
+        - " &f/Mgc event menü"
+        - "   &7: Etkinlik menüsünü açar."
+        - ""
+        - "&7Sonraki sayfaya geçiş için &f/Mgc yardım 2"
+      sayfa-2:
+        - ""
+        - "&b&lMagnetic Core &8⋆ &f2. Sayfa"
+        - " &f/Mgc oylama başlat <Oylama süresi> <Oylama>"
+        - "   &7: Bir oylama başlatırsınız."
+        - " &f/Mgc oylama durdur"
+        - "   &7: Bütün oylamaları durdurur."
+        - " &f/Mgc event durdur"
+        - "   &7: Bütün etkinlikleri durdurur."
+        - " &f/Mgc sohbet kilit"
+        - "   &7: Sohbeti kilitler."
+        - " &f/Mgc sohbet temizle"
+        - "   &7: Sohbeti temizler."
+        - ""
+      sayfa-3:
+        - ""
+        - "&b&lMagnetic Core &8⋆ &f3. Sayfa"
+        - " &f/Mgc oylama başlat <Oylama süresi> <Oylama>"
+        - "   &7: Bir oylama başlatırsınız."
+        - " &f/Mgc oylama durdur"
+        - "   &7: Bütün oylamaları durdurur."
+        - " &f/Mgc event durdur"
+        - "   &7: Bütün etkinlikleri durdurur."
+        - " &f/Mgc sohbet kilit"
+        - "   &7: Sohbeti kilitler."
+        - " &f/Mgc sohbet temizle"
+        - "   &7: Sohbeti temizler."
+        - ""
     ada-fly:
       - ""
       - "&f/Adafly &7: Uçmak için yaz !"
